@@ -12,10 +12,10 @@ Template.postSubmit.events({
     Meteor.call('post', post, function(error, id) {
       if (error) {
         return alert(error.reason);
-      }
-      // The router uses the post _id - just generated - to know where to go
-      Router.go('postPage', post);
+      }      
     });
+    // Router redirects while the call finishes - asynchronous like yo
+    Router.go('postsList');
     
     
     
