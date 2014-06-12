@@ -4,6 +4,10 @@
       <h3>
         <a href="{{url}}">{{title}}</a>
         <span>{{domain}}</span>
+        <p>
+          submitted by {{author}}
+          {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
+        </p>
       </h3>
     </div>
     <a href="{{pathFor 'postPage'}}" class="discuss btn">Discuss</a>
