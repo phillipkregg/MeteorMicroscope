@@ -10,7 +10,7 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li>
-            <a href="{{pathFor 'postSubmit'}}">New Post</a>
+            {{#if currentUser}}<a href="{{pathFor 'postSubmit'}}">New Post</a>{{/if}}
           </li>
         </ul>
         <ul class="nav pull-right">

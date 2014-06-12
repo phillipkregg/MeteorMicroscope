@@ -8,12 +8,16 @@ Template.postSubmit.events({
        title: $(e.target).find('[name=title]').val(),
        message: $(e.target).find('[name=message]').val()
      };
+          
+    Meteor.call('post', post, function(error, id) {
+      if (error) {
+        return alert(error.reason);
+      }
+      // The router uses the post _id - just generated - to know where to go
+      Router.go('postPage', post);
+    });
     
-    // The insert function automatically returns the _id of the new post
-    post._id = Posts.insert(post);
     
-    // The router uses the post _id - just generated - to know where to go
-    Router.go('postPage', post);
     
   }
 });
