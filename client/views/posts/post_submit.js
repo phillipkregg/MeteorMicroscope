@@ -11,13 +11,13 @@ Template.postSubmit.events({
           
     Meteor.call('post', post, function(error, id) {
       if (error) {
-        return alert(error.reason);
+        throwError(error.reason);
+        if (error.error === 302) 
+          Router.go('postPage', {_id: error.details});                 
+      } else {
+        Router.go('postPage', {_id: id});
       }      
-    });
-    // Router redirects while the call finishes - asynchronous like yo
-    Router.go('postsList');
-    
-    
+    });      
     
   }
 });
