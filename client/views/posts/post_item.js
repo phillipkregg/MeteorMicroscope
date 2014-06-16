@@ -11,10 +11,7 @@ Template.postItem.helpers({
     } else {
       return false;
     }
-  },
+  } 
   
-  commentsCount: function() {
-    return Comments.find({postId: this._id}).count();
-  }
   
 });

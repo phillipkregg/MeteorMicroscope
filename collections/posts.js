@@ -37,6 +37,7 @@ Meteor.methods({
       title: postAttributes.title + (this.isSimulation ? '(client)' : '(server)'),
       userId: user._id,
       author: user.username,
+      commentsCount: 0,
       submitted: new Date().getTime()
     });
     
